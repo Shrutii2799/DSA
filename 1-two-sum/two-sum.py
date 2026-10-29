@@ -1,12 +1,8 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        numMap = {}
-        n = len(nums)
+        pair_idx = {}
 
-        for i in range(n):
-            complement = target - nums[i]
-            if complement in numMap:
-                return [numMap[complement], i]
-            numMap[nums[i]] = i
-
-        return [] 
+        for i, num in enumerate(nums):
+            if target - num in pair_idx:
+                return [i, pair_idx[target - num]]
+            pair_idx[num] = i
